@@ -46,6 +46,24 @@ void insertBegin(int new_data){
 	head = new_node;
 }
 
+
+bool deleteElement(int element){
+	
+	node *prev = head;
+	node *curr = head;
+	
+	while(curr->data!=element){
+		prev = curr;
+		curr= curr->next;
+		if(curr==NULL){
+			return  false;
+		}
+	}
+
+	prev->next = curr->next;
+	free(curr);
+	return true;
+}
 //function to return length of linked list
 int length(){
 	
@@ -63,13 +81,14 @@ int length(){
 //function to print the element of the linked list
 void print(){
 	node *ptr = head;
-	if(ptr==NULL)cout<<"No Elements in linked list"<<endl;
+	if(ptr==NULL)cout<<"No Element in linked list"<<endl;
 
 	while(ptr!=NULL){
 		cout<<"| "<<ptr->data<<" |";
 		ptr=ptr->next;
 		if(ptr!=NULL)cout<<"--->";
 	}
+	cout<<endl;
 }
 
 int main(){
@@ -79,7 +98,8 @@ int main(){
 	insertBegin(90);
 	insertLast(30);
 	insertBegin(10);
-
+	cout<<deleteElement(21)<<endl;
+	cout<<deleteElement(2)<<endl;
 	print();
 
 	return 0;
