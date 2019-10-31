@@ -37,7 +37,7 @@ void insertLast(int new_data){
 
 }
 
-// function to insert at first
+// function to insert at head of the linked list
 void insertBegin(int new_data){
 
 	node *new_node = new node;
@@ -46,7 +46,7 @@ void insertBegin(int new_data){
 	head = new_node;
 }
 
-
+// function to delete the element of the linked list
 bool deleteElement(int element){
 	
 	node *prev = head;
